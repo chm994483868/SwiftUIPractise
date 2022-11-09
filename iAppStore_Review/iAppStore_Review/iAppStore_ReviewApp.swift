@@ -13,7 +13,7 @@ let tsmg_blue = UIColor(named: "tsmg_blue") ?? UIColor.blue
 struct iAppStore_ReviewApp: App {
     
     init() {
-        
+        setupApperance()
     }
     
     var body: some Scene {
@@ -46,7 +46,9 @@ struct TabbarView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             // 这里需要构建 4 个 页面以及对应的 TabBarItem
-            
+            RankHome().tabItem {
+                self.tabbarItem(text: "榜单", image: "arrow.up.arrow.down.square")
+            }.tag(Tab.rankLists)
         }
     }
 }

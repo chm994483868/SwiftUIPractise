@@ -15,6 +15,9 @@
 		8E8E98EF291B839D00A49055 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98EE291B839D00A49055 /* Strings.swift */; };
 		8E8E98F4291B882300A49055 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98F3291B882300A49055 /* LoadingView.swift */; };
 		8E8E98F6291B8DF000A49055 /* RankSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98F5291B8DF000A49055 /* RankSortView.swift */; };
+		8E8E98F9291B955C00A49055 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98F8291B955C00A49055 /* ShareSheet.swift */; };
+		8E8E98FB291B973000A49055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98FA291B973000A49055 /* Constants.swift */; };
+		8E8E98FD291BAC8300A49055 /* RankHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98FC291BAC8300A49055 /* RankHome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		8E8E98EE291B839D00A49055 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8E8E98F3291B882300A49055 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8E8E98F5291B8DF000A49055 /* RankSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankSortView.swift; sourceTree = "<group>"; };
+		8E8E98F8291B955C00A49055 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		8E8E98FA291B973000A49055 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E8E98FC291BAC8300A49055 /* RankHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankHome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 		8E8E98EA291B830000A49055 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E98F7291B938800A49055 /* Common */,
 				8E8E98F2291B880B00A49055 /* UI */,
 				8E8E98EB291B830500A49055 /* Extension */,
 			);
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8E8E98F5291B8DF000A49055 /* RankSortView.swift */,
+				8E8E98FC291BAC8300A49055 /* RankHome.swift */,
 			);
 			path = RankLists;
 			sourceTree = "<group>";
@@ -117,6 +125,15 @@
 				8E8E98F3291B882300A49055 /* LoadingView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8E8E98F7291B938800A49055 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8E8E98F8291B955C00A49055 /* ShareSheet.swift */,
+				8E8E98FA291B973000A49055 /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,10 +208,13 @@
 			files = (
 				8E8E98F6291B8DF000A49055 /* RankSortView.swift in Sources */,
 				8E8E98DF291B7E5E00A49055 /* ContentView.swift in Sources */,
+				8E8E98FD291BAC8300A49055 /* RankHome.swift in Sources */,
 				8E8E98DD291B7E5E00A49055 /* iAppStore_ReviewApp.swift in Sources */,
 				8E8E98EF291B839D00A49055 /* Strings.swift in Sources */,
 				8E8E98F4291B882300A49055 /* LoadingView.swift in Sources */,
 				8E8E98ED291B833F00A49055 /* Color.swift in Sources */,
+				8E8E98F9291B955C00A49055 /* ShareSheet.swift in Sources */,
+				8E8E98FB291B973000A49055 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
