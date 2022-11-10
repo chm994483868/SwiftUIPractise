@@ -22,9 +22,9 @@ struct LoadingView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
+        .onAppear(perform: {
             showLoadingText.toggle()
-        }
+        })
         .onReceive(timer) { _ in
             withAnimation(.spring()) {
                 let lastIndex = loadingText.count - 1
@@ -37,10 +37,10 @@ struct LoadingView: View {
         }
     }
     
+    
     var animateText: some View {
         HStack(spacing: 1) {
-            let indices = loadingText.indices as Range<Int>
-            ForEach(indices, id: \.self) { index in
+            ForEach(loadingText.indices, id: \.self) { index in
                 Text(loadingText[index])
                     .font(.headline)
                     .fontWeight(.heavy)
@@ -49,5 +49,12 @@ struct LoadingView: View {
             }
         }
         .offset(y: 12)
+    }
+    
+}
+
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingView()
     }
 }
