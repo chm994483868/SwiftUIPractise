@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8E8E98DD291B7E5E00A49055 /* iAppStore_ReviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98DC291B7E5E00A49055 /* iAppStore_ReviewApp.swift */; };
-		8E8E98DF291B7E5E00A49055 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98DE291B7E5E00A49055 /* ContentView.swift */; };
 		8E8E98E1291B7E6100A49055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E98E0291B7E6100A49055 /* Assets.xcassets */; };
 		8E8E98E4291B7E6100A49055 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E98E3291B7E6100A49055 /* Preview Assets.xcassets */; };
 		8E8E98ED291B833F00A49055 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E98EC291B833F00A49055 /* Color.swift */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		8E8E98D9291B7E5E00A49055 /* iAppStore_Review.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAppStore_Review.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8E98DC291B7E5E00A49055 /* iAppStore_ReviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAppStore_ReviewApp.swift; sourceTree = "<group>"; };
-		8E8E98DE291B7E5E00A49055 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E8E98E0291B7E6100A49055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E8E98E3291B7E6100A49055 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E8E98EC291B833F00A49055 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -93,13 +91,12 @@
 		8E8E98DB291B7E5E00A49055 /* iAppStore_Review */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E98DC291B7E5E00A49055 /* iAppStore_ReviewApp.swift */,
+				8E8E98F0291B879F00A49055 /* Components */,
 				8E8E9911291C9FE100A49055 /* ViewModels */,
 				8E8E990A291C9EFE00A49055 /* Models */,
 				8E8E9903291C9D7B00A49055 /* Network */,
 				8E8E98EA291B830000A49055 /* Shared */,
-				8E8E98F0291B879F00A49055 /* Components */,
-				8E8E98DC291B7E5E00A49055 /* iAppStore_ReviewApp.swift */,
-				8E8E98DE291B7E5E00A49055 /* ContentView.swift */,
 				8E8E98E0291B7E6100A49055 /* Assets.xcassets */,
 				8E8E98E2291B7E6100A49055 /* Preview Content */,
 			);
@@ -157,8 +154,8 @@
 		8E8E98F2291B880B00A49055 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8E8E98F3291B882300A49055 /* LoadingView.swift */,
 				8E8E98FE291C92E900A49055 /* ImageLoader.swift */,
+				8E8E98F3291B882300A49055 /* LoadingView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -283,7 +280,6 @@
 				8E8E991B291CC5BB00A49055 /* AppContextMenu.swift in Sources */,
 				8E8E98F6291B8DF000A49055 /* RankSortView.swift in Sources */,
 				8E8E9902291C94B200A49055 /* LocalFileManager.swift in Sources */,
-				8E8E98DF291B7E5E00A49055 /* ContentView.swift in Sources */,
 				8E8E991D291CC84100A49055 /* AppDetailContentView.swift in Sources */,
 				8E8E9913291C9FF600A49055 /* AppRankModel.swift in Sources */,
 				8E8E9915291CA01500A49055 /* AppDetailModel.swift in Sources */,

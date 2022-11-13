@@ -11,10 +11,15 @@ import Combine
 
 // refer: https://stackoverflow.com/questions/60677622/how-to-display-image-from-a-url-in-swiftui
 
+// 自定义的图片加载视图，里面用到了 ViewBuilder，很灵性，可以认真看一下
 struct ImageLoaderView<Placeholder: View, ConfiguredImage: View>: View {
+    // 图片 url
     var url: String?
+    // 占位图片
     private let placeholder: () -> Placeholder
+    // 加载到的图片
     private let image: (Image) -> ConfiguredImage
+    // 图片加载完成的回调
     private let completion: ((UIImage) -> Void)?
 
     @ObservedObject var imageLoader: ImageLoaderService
