@@ -10,8 +10,11 @@ import Network
 import Combine
 import SwiftUI
 
+// 网络情况监听
 final class NetworkStateChecker: ObservableObject {
+    // 单例
     static let shared = NetworkStateChecker()
+    // 发布者
     private(set) lazy var publisher = makePublisher()
     @Published private(set) var path: NWPath
     
@@ -25,6 +28,7 @@ final class NetworkStateChecker: ObservableObject {
         path = monitor.currentPath
         monitor.pathUpdateHandler = { [weak self] path in
             guard let self = self else { return }
+            
             DispatchQueue.main.async {
                 self.path = path
                 self.subject.send(path)

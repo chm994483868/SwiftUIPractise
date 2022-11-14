@@ -44,6 +44,8 @@ struct TabbarView: View {
     }
     
     var body: some View {
+        
+        // 默认选中 .rankLists 的有 4 个 Tab 页面的 TabView
         TabView(selection: $selectedTab) {
             // 这里需要构建 4 个 页面以及对应的 TabBarItem
             RankHome().tabItem {

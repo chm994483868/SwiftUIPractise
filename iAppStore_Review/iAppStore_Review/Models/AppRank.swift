@@ -47,9 +47,9 @@ struct AppRank: Codable {
     let rights: Title?
     let title: Title
     
-    //替换自定义键值名
+    // 替换自定义键值名
      enum CodingKeys: String, CodingKey {
-         case category, id, rights, summary, title//, link
+         case category, id, rights, summary, title //, link
          case imArtist = "im:artist"
          case imContentType = "im:contentType"
          case imImage = "im:image"
@@ -58,7 +58,6 @@ struct AppRank: Codable {
          case imReleaseDate = "im:releaseDate"
      }
 }
-
          
 // MARK: - Category
 struct Category: Codable {

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct AppSubscripe: Codable {
     let appId: String
     let regionName: String
