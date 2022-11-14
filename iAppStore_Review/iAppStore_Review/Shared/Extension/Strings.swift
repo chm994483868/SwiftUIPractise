@@ -49,6 +49,7 @@ extension String {
 }
 
 extension String {
+    // 获取字符串的 MD5 值
     var md5: String {
         let computed = Insecure.MD5.hash(data: self.data(using: .utf8)!)
         return computed.map { String(format: "%02hhx", $0) }

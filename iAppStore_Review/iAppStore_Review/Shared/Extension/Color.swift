@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// 一些准备好的静态变量色值，方便后续直接使用
 extension Color {
     public static var tsmg_blue: Color {
         Color("tsmg_blue", bundle: nil)
