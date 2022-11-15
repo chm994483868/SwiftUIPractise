@@ -13,7 +13,7 @@ let tsmg_blue = UIColor(named: "tsmg_blue") ?? UIColor.blue
 struct iAppStore_ReviewApp: App {
     
     init() {
-        setupApperance()
+//        setupApperance()
     }
     
     var body: some Scene {

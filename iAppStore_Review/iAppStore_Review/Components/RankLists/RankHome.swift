@@ -48,15 +48,19 @@ struct RankHome: View {
             }
             // 根据 isShowAlert 的值，如果网路请求数据发生了错误，则弹出一个 Alert 框提示错误
             .alert(isPresented: $appRankModel.isShowAlert) {
+                // 弹出网络请求失败的错误信息
                 Alert(title: Text("Error"), message: Text(appRankModel.alertMsg))
             }
+            // 导航栏标题
             .navigationBarTitle(appRankModel.rankTitle, displayMode: .inline)
         }
         .onAppear {
+            // 视图显示到页面上时，如果当前数据长度为 0，则进行网络请求
             if appRankModel.results.count == 0 {
                 appRankModel.fetchRankData(rankName, categoryName, regionName)
             }
         }
+        
     }
 }
 
