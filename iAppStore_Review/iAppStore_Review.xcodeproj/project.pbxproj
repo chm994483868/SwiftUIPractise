@@ -31,6 +31,8 @@
 		8E8E9919291CA0D700A49055 /* RankCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E9918291CA0D700A49055 /* RankCellView.swift */; };
 		8E8E991B291CC5BB00A49055 /* AppContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E991A291CC5BB00A49055 /* AppContextMenu.swift */; };
 		8E8E991D291CC84100A49055 /* AppDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E991C291CC84100A49055 /* AppDetailContentView.swift */; };
+		8EF8E1C6293EE7760057FBB8 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1C5293EE7760057FBB8 /* AppDetailView.swift */; };
+		8EF8E1C8293EFCB80057FBB8 /* RankFilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1C7293EFCB80057FBB8 /* RankFilterForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		8E8E9918291CA0D700A49055 /* RankCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellView.swift; sourceTree = "<group>"; };
 		8E8E991A291CC5BB00A49055 /* AppContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContextMenu.swift; sourceTree = "<group>"; };
 		8E8E991C291CC84100A49055 /* AppDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailContentView.swift; sourceTree = "<group>"; };
+		8EF8E1C5293EE7760057FBB8 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
+		8EF8E1C7293EFCB80057FBB8 /* RankFilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankFilterForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +146,13 @@
 		8E8E98F1291B87B700A49055 /* RankLists */ = {
 			isa = PBXGroup;
 			children = (
-				8E8E98FC291BAC8300A49055 /* RankHome.swift */,
-				8E8E98F5291B8DF000A49055 /* RankSortView.swift */,
-				8E8E9918291CA0D700A49055 /* RankCellView.swift */,
 				8E8E991A291CC5BB00A49055 /* AppContextMenu.swift */,
 				8E8E991C291CC84100A49055 /* AppDetailContentView.swift */,
+				8EF8E1C5293EE7760057FBB8 /* AppDetailView.swift */,
+				8E8E9918291CA0D700A49055 /* RankCellView.swift */,
+				8EF8E1C7293EFCB80057FBB8 /* RankFilterForm.swift */,
+				8E8E98FC291BAC8300A49055 /* RankHome.swift */,
+				8E8E98F5291B8DF000A49055 /* RankSortView.swift */,
 			);
 			path = RankLists;
 			sourceTree = "<group>";
@@ -297,6 +303,8 @@
 				8E8E9905291C9D9800A49055 /* APIService.swift in Sources */,
 				8E8E990E291C9F5C00A49055 /* AppDetail.swift in Sources */,
 				8E8E9919291CA0D700A49055 /* RankCellView.swift in Sources */,
+				8EF8E1C6293EE7760057FBB8 /* AppDetailView.swift in Sources */,
+				8EF8E1C8293EFCB80057FBB8 /* RankFilterForm.swift in Sources */,
 				8E8E9910291C9F9300A49055 /* AppSubscripe.swift in Sources */,
 				8E8E98FB291B973000A49055 /* Constants.swift in Sources */,
 			);

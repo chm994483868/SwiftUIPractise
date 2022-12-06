@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct RankSortView: View {
     
     public enum RankSortType: Int {
@@ -24,18 +25,20 @@ struct RankSortView: View {
     @State private var currentSortType: RankSortType = .noneType
     
     var action: ((_ rankName: String, _ categoryName: String, _ regionName: String) -> Void)?
-    
+
     var body: some View {
-        HStack {
+        HStack{
             DisclosureGroup(
-                isExpanded: $sortViewIsExpanded) {
+                isExpanded: $sortViewIsExpanded,
+                content: {
                     sortContents
-                } label: {
+                },
+                label: {
                     sortLabels
                 }
-                .buttonStyle(PlainButtonStyle())
-                .accentColor(.clear)
-            
+            )
+            .buttonStyle(PlainButtonStyle())
+            .accentColor(.clear)
         }
         .onDisappear() {
             sortViewIsExpanded = false
@@ -44,10 +47,12 @@ struct RankSortView: View {
     }
 }
 
+// MARK: Sort Content
+
 extension RankSortView {
     
     var sortContents: some View {
-        VStack {
+        VStack{
             Divider()
             
             if currentSortType == .rankType {
@@ -64,7 +69,7 @@ extension RankSortView {
     
     var rankContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.rankingTypeLists.count, id: \.self) { index in
+            ForEach(0..<TSMGConstants.rankingTypeLists.count) { index in
                 buildSortListRow(index: index)
             }
         }
@@ -72,7 +77,7 @@ extension RankSortView {
     
     var categoryContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.categoryTypeLists.count, id: \.self) { index in
+            ForEach(0..<TSMGConstants.categoryTypeLists.count) {index in
                 buildSortListRow(index: index)
             }
         }
@@ -80,12 +85,12 @@ extension RankSortView {
     
     var regionContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.regionTypeLists.count, id: \.self) { index in
+            ForEach(0..<TSMGConstants.regionTypeLists.count) {index in
                 buildSortListRow(index: index)
             }
         }
     }
-    
+       
     func buildSortListRow(index: Int) -> some View {
         HStack {
             let (item, isSelected) = selectedItem(index: index)
@@ -94,9 +99,7 @@ extension RankSortView {
             } else {
                 unselectedItem(item: item)
             }
-            
             Spacer()
-            
             if isSelected {
                 checkmarkImage
             }
@@ -116,7 +119,6 @@ extension RankSortView {
         } else if currentSortType == .regionType {
             itemArray = TSMGConstants.regionTypeLists
         }
-        
         if index >= itemArray.count {
             return ("", false)
         }
@@ -128,7 +130,6 @@ extension RankSortView {
         } else if currentSortType == .regionType {
             return (itemArray[index], itemArray[index] == regionName)
         }
-        
         return ("", false)
     }
     
@@ -145,7 +146,9 @@ extension RankSortView {
             sortViewIsExpanded = false
             currentSortType = .noneType
             
-            action?(rankName, categoryName, regionName)
+            if nil != action {
+                action!(rankName, categoryName, regionName)
+            }
         }
     }
     
@@ -170,6 +173,7 @@ extension RankSortView {
     }
 }
 
+// MARK: Sort Label
 extension RankSortView {
     
     var sortLabels: some View {
@@ -223,6 +227,28 @@ extension RankSortView {
                 sortViewIsExpanded = true
                 currentSortType = type
             }
+        }
+    }
+}
+
+struct RankSortView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        Group {
+            RankSortView(
+                rankName: .constant("热门免费榜"),
+                categoryName: .constant("所有APP"),
+                regionName: .constant("中国")
+            )
+                .preferredColorScheme(.dark)
+            
+            RankSortView(
+                rankName: .constant("热门免费榜"),
+                categoryName: .constant("所有APP"),
+                regionName: .constant("中国")
+            )
+                .preferredColorScheme(.light)
+                
         }
     }
 }
