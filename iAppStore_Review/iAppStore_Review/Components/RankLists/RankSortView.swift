@@ -10,24 +10,32 @@ import SwiftUI
 
 struct RankSortView: View {
     
+    // 表示筛选项的枚举
     public enum RankSortType: Int {
-        case noneType
-        case rankType
-        case categoryType
-        case regionType
+        case noneType // 当前未选中某个筛选类型
+        case rankType // 排行榜类型
+        case categoryType // App 类型
+        case regionType // 地区
     }
     
+    // 不同的排行榜名字
     @Binding var rankName: String
+    // App 类型的名字
     @Binding var categoryName: String
+    // 地区的名字
     @Binding var regionName: String
     
+    // 当前筛选视图是否处于展开状态
     @State private var sortViewIsExpanded: Bool = false
+    // 当前选中了哪个筛选类型
     @State private var currentSortType: RankSortType = .noneType
     
+    // 选中了某个筛选类型中的某个子选项
     var action: ((_ rankName: String, _ categoryName: String, _ regionName: String) -> Void)?
 
     var body: some View {
         HStack{
+            // DisclosureGroup 基于披露控件的状态显示或隐藏另一个内容视图的视图。
             DisclosureGroup(
                 isExpanded: $sortViewIsExpanded,
                 content: {
@@ -41,25 +49,33 @@ struct RankSortView: View {
             .accentColor(.clear)
         }
         .onDisappear() {
+            // 默认未展开
             sortViewIsExpanded = false
+            // 默认未选中某个筛选类型
             currentSortType = .noneType
         }
     }
 }
 
 // MARK: Sort Content
-
 extension RankSortView {
     
+    // 筛选视图的内容视图
     var sortContents: some View {
+        // VStack
         VStack{
+            // 分隔线
             Divider()
             
+            // 下面是根据选中的筛选类型，分别展示筛选项内容的 ScrollView
             if currentSortType == .rankType {
+                // 排行榜的 ScrollView 展示排行榜的上下滑动的列表
                 rankContent
             } else if currentSortType == .categoryType {
+                //
                 categoryContent
             } else if currentSortType == .regionType {
+                //
                 regionContent
             }
         }
@@ -67,25 +83,35 @@ extension RankSortView {
         .frame(maxHeight: 210)
     }
     
+    // 排行榜的 ScrollView 上下滑动视图
     var rankContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.rankingTypeLists.count) { index in
-                buildSortListRow(index: index)
+            // 这里使用了一个 LazyVStack 包裹
+            LazyVStack {
+                ForEach(0..<TSMGConstants.rankingTypeLists.count, id: \.self) { index in
+                    // 排行榜列表的每一行
+                    buildSortListRow(index: index)
+                }
             }
         }
     }
     
+    // 分类的 ScrollView 上下滑动视图
     var categoryContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.categoryTypeLists.count) {index in
-                buildSortListRow(index: index)
+            // 这里用了一个 LazyVStack 包裹
+            LazyVStack {
+                ForEach(0..<TSMGConstants.categoryTypeLists.count, id: \.self) {index in
+                    buildSortListRow(index: index)
+                }
             }
         }
     }
     
+    // 地区的上下滑动视图
     var regionContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.regionTypeLists.count) {index in
+            ForEach(0..<TSMGConstants.regionTypeLists.count, id: \.self) {index in
                 buildSortListRow(index: index)
             }
         }

@@ -100,13 +100,20 @@ extension RankHome {
     /// 筛选栏
     var stickyHeaderView: some View {
         ZStack(alignment: .top) {
-            
+            // VStack
             VStack {
+                // 占位 10
                 Spacer().frame(height: 10)
+                // 当前日期
                 Text(Date.now.debugDescription)
-                RankSortView(rankName: $rankName, categoryName: $categoryName, regionName: $regionName) { rankName, categoryName, regionName in
+                // RankSortView 筛选视图
+                RankSortView(rankName: $rankName,
+                             categoryName: $categoryName,
+                             regionName: $regionName) { rankName, categoryName, regionName in
+                    // 选中某个筛选项后的回调
                     appRankModel.fetchRankData(rankName, categoryName, regionName)
                 }
+                // 占位
                 Spacer()
             }
         }
