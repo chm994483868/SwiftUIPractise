@@ -39,9 +39,11 @@ struct RankSortView: View {
             DisclosureGroup(
                 isExpanded: $sortViewIsExpanded,
                 content: {
+                    // 当 排行榜/分类/地区 某一个筛选类型被展开时，子项列表展开来
                     sortContents
                 },
                 label: {
+                    // 三个筛选类型当前选中的子项标题横向排布，每个中间用一个向下的箭头分隔，提示着用户点击可以展开
                     sortLabels
                 }
             )
@@ -60,7 +62,7 @@ struct RankSortView: View {
 // MARK: Sort Content
 extension RankSortView {
     
-    // 筛选视图的内容视图
+    // 当 排行榜/分类/地区 某一个筛选类型被展开时，其子项列表展开来
     var sortContents: some View {
         // VStack
         VStack{
@@ -72,10 +74,10 @@ extension RankSortView {
                 // 排行榜的 ScrollView 展示排行榜的上下滑动的列表
                 rankContent
             } else if currentSortType == .categoryType {
-                //
+                // 分类的 ScrollView 展示分类的上下滑动的列表
                 categoryContent
             } else if currentSortType == .regionType {
-                //
+                // 地区的 ScrollView 展示地区的上下滑动的列表
                 regionContent
             }
         }
@@ -102,6 +104,7 @@ extension RankSortView {
             // 这里用了一个 LazyVStack 包裹
             LazyVStack {
                 ForEach(0..<TSMGConstants.categoryTypeLists.count, id: \.self) {index in
+                    // 分类列表的每一行
                     buildSortListRow(index: index)
                 }
             }
@@ -111,56 +114,85 @@ extension RankSortView {
     // 地区的上下滑动视图
     var regionContent: some View {
         ScrollView {
-            ForEach(0..<TSMGConstants.regionTypeLists.count, id: \.self) {index in
-                buildSortListRow(index: index)
+            // 这里用了一个 LazyVStack 包裹
+            LazyVStack {
+                ForEach(0..<TSMGConstants.regionTypeLists.count, id: \.self) {index in
+                    // 地区列表的每一行
+                    buildSortListRow(index: index)
+                }
             }
         }
     }
-       
+    
+    // 各个筛选项列表中每个子项
     func buildSortListRow(index: Int) -> some View {
+        // HStack 这里需要区分选中和非选中状态，选中状态时左边是蓝色的字体和右边一个对号提示
         HStack {
+            // 排行榜/分类/地区 都复用了 buildSortListRow 函数，且参数只有一个 index，
+            // 所以这里需要根据 index 查找 排行榜/分类/地区 对应索引下子项的字符串和当前这个子项是否是选中状态...
             let (item, isSelected) = selectedItem(index: index)
+            
             if isSelected {
+                // 如果是选中的子项，显示为蓝色的字体
                 selectedItem(item: item)
             } else {
+                // 如果是非选中的子项，显示为黑色的字体
                 unselectedItem(item: item)
             }
-            Spacer()
+            
+            // 占位
+            Spacer() 
+            
             if isSelected {
+                // 如果是选中状态子项右边添加一个选中指示的对号图片
                 checkmarkImage
             }
         }
         .background(Color.tsmg_systemBackground)
         .onTapGesture {
+            // 选中了当前这个子项时，会进行回调
             onTapSortItem(index: index)
         }
     }
     
+    // 根据 index 查找到 排行榜/分类/地区 对应的子项：一个字符串和当前子项是否被选中
     func selectedItem(index: Int) -> (String, Bool) {
         var itemArray: [String] = []
+    
         if currentSortType == .rankType {
+            // 如果当前是筛选 排行榜 数据，这里数据源使用排行榜的数据源
             itemArray = TSMGConstants.rankingTypeLists
         } else if currentSortType == .categoryType {
+            // 如果当前是筛选 分类 数据，这里数据源使用分类的数据源
             itemArray = TSMGConstants.categoryTypeLists
         } else if currentSortType == .regionType {
+            // 如果当前是筛选 地区 数据，这里数据源使用地区的数据源
             itemArray = TSMGConstants.regionTypeLists
         }
+        
+        // 如果越界了返回 ""
         if index >= itemArray.count {
             return ("", false)
         }
         
         if currentSortType == .rankType {
+            // 排行榜：返回 子项，以及子项是否是当前选中的名字
             return (itemArray[index], itemArray[index] == rankName)
         } else if currentSortType == .categoryType {
+            // 分类：返回 子项，以及子项是否是当前选中的名字
             return (itemArray[index], itemArray[index] == categoryName)
         } else if currentSortType == .regionType {
+            // 地区：返回 子项，以及子项是否是当前选中的名字
             return (itemArray[index], itemArray[index] == regionName)
         }
+        
         return ("", false)
     }
     
+    // 点击某个子项以后，进行回调
     func onTapSortItem(index: Int) {
         withAnimation {
+            // 根据当前的类型：排行榜、分类、地区 的数据源取得选中子项的名字，更新当前 rankName/categoryName/regionName
             if currentSortType == .rankType {
                 rankName = TSMGConstants.rankingTypeLists[index]
             } else if currentSortType == .categoryType {
@@ -169,15 +201,19 @@ extension RankSortView {
                 regionName = TSMGConstants.regionTypeLists[index]
             }
             
+            // 标记当前已不是展开状态了
             sortViewIsExpanded = false
+            // 标记当前选中类型为空
             currentSortType = .noneType
             
+            // 更新了选中子项以后，进行回调
             if nil != action {
                 action!(rankName, categoryName, regionName)
             }
         }
     }
     
+    // 选中的子项，蓝色的字体
     func selectedItem(item: String) -> some View {
         Text(item)
             .padding(.horizontal)
@@ -185,12 +221,14 @@ extension RankSortView {
             .foregroundColor(.blue)
     }
     
+    // 未选中的子项，黑色的字体
     func unselectedItem(item: String) -> some View {
         Text(item)
             .padding(.horizontal)
             .padding(.vertical, 5)
     }
     
+    // 选中时的指示，一个蓝色的对号图片
     var checkmarkImage: some View {
         Image(systemName: "checkmark")
             .padding(.horizontal)

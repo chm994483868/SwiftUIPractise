@@ -7,7 +7,7 @@
 
 import Foundation
 
-// 一些固定值供后续使用
+// 一些固定值供筛选项使用
 struct TSMGConstants {
     
     static var rankingTypeLists: [String] = [
