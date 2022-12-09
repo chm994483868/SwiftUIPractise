@@ -36,9 +36,8 @@ struct SearchCellView: View {
             
             // 左边是 VStack App 的信息
             VStack(alignment: .leading) {
-                // HStack 使用，仅仅是为了再中间加一个序号
+                // HStack 使用，仅仅是为了在中间加一个序号
                 HStack(alignment: .top) {
-                    
                     // 序号
                     Text("\(index + 1)")
                         .font(.system(size: 16, weight: .heavy, design: .default))

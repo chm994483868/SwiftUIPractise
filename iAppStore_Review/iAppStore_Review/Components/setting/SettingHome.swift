@@ -9,33 +9,41 @@
 import SwiftUI
 import SafariServices
 
-
 struct LinkString: Identifiable {
     let url: String
     var id: String { url } // or let id = UUID()
 }
 
 struct SettingHome: View {
-    
     private let items = ["切换图标", "AppStore", "蝉大师", "点点数据", "七麦数据"]
     
     @State private var linkPage: LinkString? = nil
     
     var body: some View {
+        // NavigationView
         NavigationView {
+            // Group
             Group {
                 List {
+                    // Section 功能区
                     Section(header: Text("功能")) {
+                        // 遍历 items 数组，展示对应的功能列表
                         ForEach(items, id: \.self) { title in
+                            // 左边是标题，右边是一个向右的箭头
                             SettingItemCell(linkPage: $linkPage, title: title, index: items.firstIndex(of: title)!)
                         }
                     }
                     
+                    // Section 关于区
                     Section(header: Text("关于")) {
+                        // 跳转到 AboutAppView 关于应用页面
                         NavigationLink(destination: AboutAppView()) {
                             Text("关于应用").frame(height: 50)
                         }
+                        
+                        // 设置页面
                         SettingItemCell(linkPage: $linkPage, title: "GitHub 开源", index: items.count)
+                        // 设置页面
                         SettingItemCell(linkPage: $linkPage, title: "37手游iOS技术运营团队", index: items.count + 1)
                     }
                 }
@@ -44,6 +52,7 @@ struct SettingHome: View {
             .navigationBarTitleDisplayMode(.automatic)
         }
         .sheet(item: $linkPage, content: { linkPage in
+            // Safari 打开
             SafariView(url: URL(string: linkPage.url)!)
         })
     }
@@ -59,7 +68,7 @@ struct SettingItemCell: View {
     @State private var icons: [String] = ["", "37", "37iOS", "37AppStore", "Apple", "AppleRainbow"]
     
     var body: some View {
-    
+        
         if index == 0 {
             DisclosureGroup(title, isExpanded: $iconViewIsExpanded) {
                 ForEach(0..<icons.count, id: \.self){ index in
@@ -131,17 +140,17 @@ struct SettingItemCell: View {
 
 // MARK: -  SafariView
 struct SafariView: UIViewControllerRepresentable {
-
+    
     let url: URL
-
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
         let sf = SFSafariViewController(url: url)
         sf.dismissButtonStyle = .close
         return sf
     }
-
+    
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
-
+        
     }
 }
 

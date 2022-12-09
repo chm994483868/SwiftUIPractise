@@ -247,8 +247,6 @@ struct SearchFilterView: View {
     }
 }
 
-
-
 struct SearchHome_Previews: PreviewProvider {
     static var previews: some View {
         SearchHome()
