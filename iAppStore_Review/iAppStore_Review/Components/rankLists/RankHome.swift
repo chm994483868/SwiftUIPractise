@@ -113,6 +113,7 @@ extension RankHome {
                     // 选中某个筛选项后的回调
                     appRankModel.fetchRankData(rankName, categoryName, regionName)
                 }
+                
                 // 占位
                 Spacer()
             }

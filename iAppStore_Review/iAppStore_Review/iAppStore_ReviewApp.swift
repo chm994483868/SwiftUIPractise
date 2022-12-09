@@ -53,13 +53,29 @@ struct TabbarView: View {
         TabView(selection: $selectedTab) {
             // 一排页面，即一个 tab bar 对应一个页面
             
-            //榜单页面
+            // 榜单页面
             RankHome().tabItem {
                 // tabItem 设置与此视图关联的 tab bar item
                 self.tabbarItem(text: "榜单", image: "arrow.up.arrow.down.square")
             }.tag(Tab.rankLists)
             
-            //
+            // 搜索页面
+            SearchHome().tabItem{
+                // tabItem 设置与此视图关联的 tab bar item
+                self.tabbarItem(text: "搜索", image: "magnifyingglass.circle.fill")
+            }.tag(Tab.search)
+            
+            // 订阅页面
+            SubscriptionHome().tabItem{
+                // tabItem 设置与此视图关联的 tab bar item
+                self.tabbarItem(text: "订阅", image: "checkmark.seal.fill")
+            }.tag(Tab.subscription)
+            
+            // 设置页面
+            SettingHome().tabItem{
+                // tabItem 设置与此视图关联的 tab bar item
+                self.tabbarItem(text: "设置", image: "heart.circle")
+            }.tag(Tab.setting)
         }
     }
 }

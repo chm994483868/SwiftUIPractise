@@ -33,6 +33,12 @@
 		8E8E991D291CC84100A49055 /* AppDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E991C291CC84100A49055 /* AppDetailContentView.swift */; };
 		8EF8E1C6293EE7760057FBB8 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1C5293EE7760057FBB8 /* AppDetailView.swift */; };
 		8EF8E1C8293EFCB80057FBB8 /* RankFilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1C7293EFCB80057FBB8 /* RankFilterForm.swift */; };
+		8EF8E1CC29422BE00057FBB8 /* SearchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1CA29422BE00057FBB8 /* SearchHome.swift */; };
+		8EF8E1CD29422BE00057FBB8 /* SearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1CB29422BE00057FBB8 /* SearchCellView.swift */; };
+		8EF8E1D12942A6890057FBB8 /* SubscriptionHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1CF2942A6890057FBB8 /* SubscriptionHome.swift */; };
+		8EF8E1D22942A6890057FBB8 /* SubscriptionAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1D02942A6890057FBB8 /* SubscriptionAddView.swift */; };
+		8EF8E1D62942A6B00057FBB8 /* SettingHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1D42942A6B00057FBB8 /* SettingHome.swift */; };
+		8EF8E1D72942A6B00057FBB8 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8E1D52942A6B00057FBB8 /* AboutAppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +69,12 @@
 		8E8E991C291CC84100A49055 /* AppDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailContentView.swift; sourceTree = "<group>"; };
 		8EF8E1C5293EE7760057FBB8 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
 		8EF8E1C7293EFCB80057FBB8 /* RankFilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankFilterForm.swift; sourceTree = "<group>"; };
+		8EF8E1CA29422BE00057FBB8 /* SearchHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHome.swift; sourceTree = "<group>"; };
+		8EF8E1CB29422BE00057FBB8 /* SearchCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCellView.swift; sourceTree = "<group>"; };
+		8EF8E1CF2942A6890057FBB8 /* SubscriptionHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionHome.swift; sourceTree = "<group>"; };
+		8EF8E1D02942A6890057FBB8 /* SubscriptionAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionAddView.swift; sourceTree = "<group>"; };
+		8EF8E1D42942A6B00057FBB8 /* SettingHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHome.swift; sourceTree = "<group>"; };
+		8EF8E1D52942A6B00057FBB8 /* AboutAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,12 +150,15 @@
 		8E8E98F0291B879F00A49055 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8E8E98F1291B87B700A49055 /* RankLists */,
+				8E8E98F1291B87B700A49055 /* rankLists */,
+				8EF8E1C929422BAC0057FBB8 /* search */,
+				8EF8E1D32942A69B0057FBB8 /* setting */,
+				8EF8E1CE2942A6730057FBB8 /* subscription */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		8E8E98F1291B87B700A49055 /* RankLists */ = {
+		8E8E98F1291B87B700A49055 /* rankLists */ = {
 			isa = PBXGroup;
 			children = (
 				8E8E991A291CC5BB00A49055 /* AppContextMenu.swift */,
@@ -154,7 +169,7 @@
 				8E8E98FC291BAC8300A49055 /* RankHome.swift */,
 				8E8E98F5291B8DF000A49055 /* RankSortView.swift */,
 			);
-			path = RankLists;
+			path = rankLists;
 			sourceTree = "<group>";
 		};
 		8E8E98F2291B880B00A49055 /* UI */ = {
@@ -211,6 +226,33 @@
 				8E8E9916291CA04D00A49055 /* AppSubscripeModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8EF8E1C929422BAC0057FBB8 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				8EF8E1CB29422BE00057FBB8 /* SearchCellView.swift */,
+				8EF8E1CA29422BE00057FBB8 /* SearchHome.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		8EF8E1CE2942A6730057FBB8 /* subscription */ = {
+			isa = PBXGroup;
+			children = (
+				8EF8E1D02942A6890057FBB8 /* SubscriptionAddView.swift */,
+				8EF8E1CF2942A6890057FBB8 /* SubscriptionHome.swift */,
+			);
+			path = subscription;
+			sourceTree = "<group>";
+		};
+		8EF8E1D32942A69B0057FBB8 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				8EF8E1D52942A6B00057FBB8 /* AboutAppView.swift */,
+				8EF8E1D42942A6B00057FBB8 /* SettingHome.swift */,
+			);
+			path = setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +328,7 @@
 				8E8E991B291CC5BB00A49055 /* AppContextMenu.swift in Sources */,
 				8E8E98F6291B8DF000A49055 /* RankSortView.swift in Sources */,
 				8E8E9902291C94B200A49055 /* LocalFileManager.swift in Sources */,
+				8EF8E1D62942A6B00057FBB8 /* SettingHome.swift in Sources */,
 				8E8E991D291CC84100A49055 /* AppDetailContentView.swift in Sources */,
 				8E8E9913291C9FF600A49055 /* AppRankModel.swift in Sources */,
 				8E8E9915291CA01500A49055 /* AppDetailModel.swift in Sources */,
@@ -295,17 +338,22 @@
 				8E8E9917291CA04D00A49055 /* AppSubscripeModel.swift in Sources */,
 				8E8E98EF291B839D00A49055 /* Strings.swift in Sources */,
 				8E8E98F4291B882300A49055 /* LoadingView.swift in Sources */,
+				8EF8E1D12942A6890057FBB8 /* SubscriptionHome.swift in Sources */,
 				8E8E98ED291B833F00A49055 /* Color.swift in Sources */,
 				8E8E9907291C9DC100A49055 /* NetworkMonitor.swift in Sources */,
 				8E8E9909291C9E8000A49055 /* NetworkManager.swift in Sources */,
 				8E8E990C291C9F1500A49055 /* AppRank.swift in Sources */,
 				8E8E98F9291B955C00A49055 /* ShareSheet.swift in Sources */,
 				8E8E9905291C9D9800A49055 /* APIService.swift in Sources */,
+				8EF8E1CD29422BE00057FBB8 /* SearchCellView.swift in Sources */,
 				8E8E990E291C9F5C00A49055 /* AppDetail.swift in Sources */,
+				8EF8E1D22942A6890057FBB8 /* SubscriptionAddView.swift in Sources */,
 				8E8E9919291CA0D700A49055 /* RankCellView.swift in Sources */,
 				8EF8E1C6293EE7760057FBB8 /* AppDetailView.swift in Sources */,
 				8EF8E1C8293EFCB80057FBB8 /* RankFilterForm.swift in Sources */,
+				8EF8E1D72942A6B00057FBB8 /* AboutAppView.swift in Sources */,
 				8E8E9910291C9F9300A49055 /* AppSubscripe.swift in Sources */,
+				8EF8E1CC29422BE00057FBB8 /* SearchHome.swift in Sources */,
 				8E8E98FB291B973000A49055 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

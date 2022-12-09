@@ -656,6 +656,7 @@ struct AppDetailFooterCellView: View {
                                     .foregroundColor(.gray)
                                 Spacer()
                             }
+                            .background(Color.white)
                             .onTapGesture {
                                 // 点击标题收起延展
                                 isShowExtendText = false

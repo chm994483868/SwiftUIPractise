@@ -240,55 +240,78 @@ extension RankSortView {
 // MARK: Sort Label
 extension RankSortView {
     
+    // 横向排布的三个类型选中的标题
     var sortLabels: some View {
+        // HStack
         HStack {
+            // 占位
             Spacer()
+            // 排行榜选中的类型的标题
             rankLabel
+            // 占位
             Spacer()
+            // 分类选中的的标题
             categoryLabel
+            // 占位
             Spacer()
+            // 地区选中的标题
             regionLabel
+            // 占位
             Spacer()
         }
     }
     
+    // 排行榜
     var rankLabel: some View {
         createSortLabel(type: .rankType)
     }
     
+    // 分类
     var categoryLabel: some View {
         createSortLabel(type: .categoryType)
     }
     
+    // 地区
     var regionLabel: some View {
         createSortLabel(type: .regionType)
     }
     
     func createSortLabel(type: RankSortType) -> some View {
         HStack {
+            // 根据类型，显示对应的标题
             switch type {
             case .noneType:
+                // 空
                 Text("")
             case .rankType:
+                // 排行榜的标题
                 Text(rankName)
             case .categoryType:
+                // 分类的标题
                 Text(categoryName)
             case .regionType:
+                // 地区的标题
                 Text(regionName)
             }
             
             if currentSortType == type {
+                // 如果当前是展开的类型，则是向上的箭头
                 Image(systemName: "chevron.up")
             } else {
+                // 如果当前是类型为展开，则是向下的标题
                 Image(systemName: "chevron.down")
             }
         }
         .onTapGesture {
             if currentSortType == type {
+                // 如果当前类型已经是展开状态，则关闭当前的状态
                 sortViewIsExpanded = false
+                // 置为 none
                 currentSortType = .noneType
             } else {
+                // 如果当前不是，则展开这个选中的类型
                 sortViewIsExpanded = true
+                // 记录当前选中的类型
                 currentSortType = type
             }
         }
@@ -312,7 +335,6 @@ struct RankSortView_Previews: PreviewProvider {
                 regionName: .constant("中国")
             )
                 .preferredColorScheme(.light)
-                
         }
     }
 }
