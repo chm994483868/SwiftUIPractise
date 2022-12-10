@@ -169,7 +169,6 @@ struct SubscripteCellView: View {
     }
 }
 
-
 struct SubscriptionHome_Previews: PreviewProvider {
     static var previews: some View {
         SubscriptionHome()

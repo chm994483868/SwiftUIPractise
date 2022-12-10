@@ -26,6 +26,14 @@ struct iAppStore_ReviewApp: App {
     
     // 设置导航条相关的一些 Apperance
     private func setupApperance() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = .white
+        navigationBarAppearance.shadowColor = .clear
+        navigationBarAppearance.shadowImage = UIImage()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: tsmg_blue]
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: tsmg_blue]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: tsmg_blue], for: .normal)

@@ -275,6 +275,7 @@ struct SubscriptionAddView: View {
             // 占位
             Spacer()
         }.alert(item: $alertType) { type in
+            // 根据 alertType 的值来判断弹出何种 alert
             var error = ""
             switch type {
             case .parameterError:
